@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Don't Track Admins
-Plugin URI: http://technobabbl.es/yourls/dont-track-admins/
+Plugin URI: https://github.com/dgw/yourls-dont-track-admins
 Description: Short-circuits the yourls_update_clicks() function if the user requesting the link is logged in to YOURLS.
 Version: 0.1
 Author: dgw
