@@ -15,11 +15,6 @@ Author URI: http://technobabbl.es/
  * We're going to hook into this filter and modify this value.
  */
  
-yourls_add_filter( 'shunt_update_clicks', 'dgw_dont_track_admins' );
-/* This says: when filter 'shunt_update_clicks' is triggered, send its value to function 'dgw_dont_track_admins'
- * and use what this function will return.
- */
- 
 function dgw_dont_track_admins( $pre = false ) {
 	if( yourls_is_valid_user() === true ) { // If user is logged in to yourls...
 		$pre = true; // ...we want to short-circuit the click updater.
@@ -29,3 +24,8 @@ function dgw_dont_track_admins( $pre = false ) {
 	return $pre; // true (if user is logged in) or false (if not)
 }
 
+/* Filter the tracking routines */
+# first the click tracker
+yourls_add_filter( 'shunt_update_clicks', 'dgw_dont_track_admins' );
+# then the detailed logger
+yourls_add_filter( 'shunt_log_redirect', 'dgw_dont_track_admins' );
