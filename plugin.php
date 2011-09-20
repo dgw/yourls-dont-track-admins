@@ -15,13 +15,13 @@ Author URI: http://technobabbl.es/
  * We're going to hook into this filter and modify this value.
  */
  
-function dgw_dont_track_admins( $pre = false ) {
+function dgw_dont_track_admins( $shortcircuit = false ) {
 	if( yourls_is_valid_user() === true ) { // If user is logged in to yourls...
-		$pre = true; // ...we want to short-circuit the click updater.
+		$shortcircuit = true; // ...we want to short-circuit the click updater.
 	} else {
-		$pre = false; // Just in case
+		$shortcircuit = false; // Just in case
 	}
-	return $pre; // true (if user is logged in) or false (if not)
+	return $shortcircuit; // true (if user is logged in) or false (if not)
 }
 
 /* Filter the tracking routines */
