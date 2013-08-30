@@ -1,0 +1,25 @@
+{
+    "name": "kennisnet/yourls-dont-track-admins",
+    "type": "yourls-plugin",
+    "description": "A plugin for YOURLS (the self-hosted URL shortener) that disables tracking clicks on shortened URLs for logged-in users.",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "dgw",
+            "homepage": "http://technobabbl.es/"
+        },
+        {
+            "name": "Frank Matheron",
+            "email": "frankmatheron@gmail.com"
+        }
+    ],
+    "require": {
+        "kennisnet/yourls-plugin-installer": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/fenuz/yourls-plugin-installer.git"
+        }
+    ]
+}
