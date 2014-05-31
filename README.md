@@ -2,6 +2,8 @@
 
 a plugin for YOURLS by dgw
 
+with contributions by fenuz (adding filters after other plugins loaded)
+
 ## Description
 
 *Don't Track Admins* checks to see if the user requesting a link is logged in to
