@@ -3,7 +3,7 @@
 Plugin Name: Don't Track Admins
 Plugin URI: https://github.com/dgw/yourls-dont-track-admins
 Description: Short-circuits the yourls_update_clicks() function if the user requesting the link is logged in to YOURLS.
-Version: 1.1
+Version: 1.2
 Author: dgw
 Author URI: http://technobabbl.es/
 */
