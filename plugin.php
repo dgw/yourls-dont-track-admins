@@ -43,7 +43,7 @@ function dgw_dont_track_admins( $unusedvar ) { // If we've gotten here...
 yourls_add_action('plugins_loaded', 'dgw_dont_track_admins_init');
 function dgw_dont_track_admins_init() {
     /* If user is logged in to yourls... */
-    if( yourls_is_valid_user() === true ) {
+	if ( function_exists( 'yourls_is_valid_user' ) && yourls_is_valid_user() === true ) {
         /* ...then filter the tracking routines */
         # first the click tracker
         yourls_add_filter( 'shunt_update_clicks', 'dgw_dont_track_admins' );
