@@ -30,7 +30,7 @@ Two easy ways of installing *Don't Track Admins* on your YOURLS site: Git or FTP
 ### Via Git (simplest)
 
 1. SSH into your server and `cd [YOURLS_ROOT]/user/plugins`
-2. `git clone git://github.com/dgw/yourls-dont-track-admins.git dont-track-admins`
+2. `git clone https://github.com/dgw/yourls-dont-track-admins.git dont-track-admins`
 3. Activate the plugin from the YOURLS dashboard
 
 Updating is also really simple: Just `git pull origin` to update the plugin.
