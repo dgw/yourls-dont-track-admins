@@ -2,8 +2,8 @@
 /*
 Plugin Name: Don't Track Admins
 Plugin URI: https://github.com/dgw/yourls-dont-track-admins
-Description: Short-circuits the yourls_update_clicks() function if the user requesting the link is logged in to YOURLS.
-Version: 1.2
+Description: Don't count clicks on short URLs if user is logged in to the YOURLS installation
+Version: 1.3
 Author: dgw
 Author URI: http://technobabbl.es/
 */
@@ -26,28 +26,15 @@ Author URI: http://technobabbl.es/
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  **/
 
-/* Short out click tracker for logged-in users
- *
- * @uses filter shunt_update_clicks
- *
- * We're going to hook into this filter and modify this value.
- */
- 
-function dgw_dont_track_admins( $unusedvar ) { // If we've gotten here...
-    return true; // ...we want to short-circuit the click updater.
-}
-
-/* Initialize the filters AFTER all the plugins have been loaded. This
-   allows other plugins to register hooks related to authorization before
-   calling yourls_is_valid_user(). */
-yourls_add_action('plugins_loaded', 'dgw_dont_track_admins_init');
+/* Initialize the filters only when a redirection to a short URL occurs */
+yourls_add_action('redirect_shorturl', 'dgw_dont_track_admins_init');
 function dgw_dont_track_admins_init() {
     /* If user is logged in to yourls... */
     if( yourls_is_valid_user() === true ) {
         /* ...then filter the tracking routines */
         # first the click tracker
-        yourls_add_filter( 'shunt_update_clicks', 'dgw_dont_track_admins' );
+        yourls_add_filter( 'shunt_update_clicks', 'yourls_return_true' );
         # then the detailed logger
-        yourls_add_filter( 'shunt_log_redirect', 'dgw_dont_track_admins' );
+        yourls_add_filter( 'shunt_log_redirect', 'yourls_return_true' );
     }
 }
