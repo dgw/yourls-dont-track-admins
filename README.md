@@ -2,7 +2,7 @@
 
 a plugin for YOURLS by dgw
 
-with contributions by fenuz (adding filters after other plugins loaded)
+with contributions by fenuz and ozh
 
 ## Description
 
@@ -18,7 +18,7 @@ This README is a work in progress, in the same vein as the plugin.
 
 * A YOURLS instance
     * All the server software required to run YOURLS
-    * At least version 1.5.1 of YOURLS (for plugin architecture and hooks)
+    * At least version 1.7.1 of YOURLS
 
 That's it. *Don't Track Admins* doesn't need anything fancy in your server
 configuration.
@@ -30,14 +30,14 @@ Two easy ways of installing *Don't Track Admins* on your YOURLS site: Git or FTP
 ### Via Git (simplest)
 
 1. SSH into your server and `cd [YOURLS_ROOT]/user/plugins`
-2. `git clone git://github.com/dgw/yourls-dont-track-admins.git dont-track-admins`
+2. `git clone https://github.com/dgw/yourls-dont-track-admins.git dont-track-admins`
 3. Activate the plugin from the YOURLS dashboard
 
 Updating is also really simple: Just `git pull origin` to update the plugin.
 
 ### Via FTP (more leg work)
 
-1. Download a *Don't Track Admins* release from http://tbbl.es/dta-latest
+1. Download [the latest *Don't Track Admins* release](https://github.com/dgw/yourls-dont-track-admins/releases/latest)
 2. Unzip the archive
 3. Upload the plugin folder to `[YOURLS_ROOT]/user/plugins`
 4. Activate the plugin from YOURLS' dashboard
@@ -49,6 +49,12 @@ Updating is also really simple: Just `git pull origin` to update the plugin.
 * v1.0 (2011-09-19):
     * Catch other tracking function too
     * "Release"
+* v1.1 (not officially released)
+    * Restructured plugin/hooks
+* v1.2 (2014-05-31)
+    * Add hooks after other plugins loaded
+* v1.3 (2022-04-11)
+    * Updates & tweaks to work with current YOURLS (1.7/1.8)
 
 ## License
 
