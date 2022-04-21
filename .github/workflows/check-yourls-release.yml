@@ -1,0 +1,31 @@
+name: Check if new YOURLS release
+
+on:
+  # Run every Monday
+  schedule:
+    - cron:  '37 13 * * 1'
+  # Run on every push or pull request to `master`
+  push:
+  pull_request:
+    branches: [ master ]
+  # Also allow manually triggering the workflow.
+  workflow_dispatch:
+
+jobs:
+  get-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Fetch release version
+        run: |
+          curl -sL https://api.github.com/repos/yourls/yourls/releases/latest | \
+          jq -r ".tag_name" > .github/.latest-yourls-release
+      - name: Commit and push if change
+        run: |-
+          git diff
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add -A
+          git commit -m "New YOURLS release" || exit 0
+          git push
